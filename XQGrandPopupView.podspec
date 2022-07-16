@@ -1,11 +1,12 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "XQGrandPopupView"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "弹窗."
   spec.description  = <<-DESC
-                   GrandPopupView的OC版
-                   DESC
+                    XQGrandPopupView是一个自定义程度非常高的弹窗组件。它对外提供一个容器视图，因此开发者可以完全自定义弹窗内容。
+                    同时XQGrandPopupView封装了弹窗的显示与隐藏，并提供了两种默认的动画效果，子类可通过重写的方式扩展动画效果。
+                    DESC
   spec.homepage     = "https://github.com/xq-120/XQGrandPopupView"
 
   spec.license      = "MIT"

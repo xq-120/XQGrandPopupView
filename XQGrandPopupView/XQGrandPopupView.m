@@ -27,7 +27,11 @@
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
-    return [self init];
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self _commonInit];
+    }
+    return self;
 }
 
 - (void)_commonInit {
@@ -38,6 +42,12 @@
     [self.backView addTarget:self action:@selector(backViewDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.backView];
     [self addSubview:self.contentView];
+    
+    self.backView.translatesAutoresizingMaskIntoConstraints = false;
+    [NSLayoutConstraint constraintWithItem:self.backView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:0].active = true;
+    [NSLayoutConstraint constraintWithItem:self.backView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1 constant:0].active = true;
+    [NSLayoutConstraint constraintWithItem:self.backView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0].active = true;
+    [NSLayoutConstraint constraintWithItem:self.backView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0].active = true;
 }
 
 - (id<XQGrandPopupAnimationProtocol>)animator {
@@ -60,8 +70,9 @@
 }
 
 - (void)showIn:(UIView *)view completion:(void (^)(void))completion {
-    self.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
-    self.backView.frame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+    if (CGRectEqualToRect(self.frame, CGRectZero)) {
+        self.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+    }
     [view addSubview:self];
     
     id <XQGrandPopupAnimationProtocol> animatorObj = [self animator];
