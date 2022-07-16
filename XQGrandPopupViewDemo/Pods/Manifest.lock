@@ -1,0 +1,23 @@
+PODS:
+  - SnapKit (5.0.1)
+  - XQGrandPopupView (1.0.0)
+
+DEPENDENCIES:
+  - SnapKit (~> 5.0.0)
+  - XQGrandPopupView (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - SnapKit
+
+EXTERNAL SOURCES:
+  XQGrandPopupView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  XQGrandPopupView: 5d852d791ff55912412d7782946591f72f0d567a
+
+PODFILE CHECKSUM: 58c3557d059da3d304bedbb04ed130a4e4212446
+
+COCOAPODS: 1.11.2
